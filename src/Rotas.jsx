@@ -1,4 +1,5 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import App from "./App"
 
 const rotasCinema = [
     {
@@ -36,7 +37,7 @@ const rotasFilmes = [
 const router = createBrowserRouter([
     {
         path:"/",
-        element:<h1>Home</h1>
+        element:<App/>
     },
     ...rotasCinema,
     ...rotasFilmes,
