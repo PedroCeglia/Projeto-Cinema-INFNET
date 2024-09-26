@@ -17,3 +17,7 @@
     padding: 1rem;
     gap: .3rem;
 }
+
+body{
+    background-color: var(--primary-color);
+}
