@@ -6,7 +6,8 @@
 
 :root{
     --black: #1b1717;
-    --primary-color: #af0d0d;
+    /* --primary-color: #af0d0d; */
+    --primary-color: #c94e1a;
     --bd-radius: .3rem;
 }
 

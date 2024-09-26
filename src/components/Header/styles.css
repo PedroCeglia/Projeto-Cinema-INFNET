@@ -65,3 +65,31 @@ header span{
     cursor: pointer;
     height: 35px;
 }
+
+@media (min-width: 1024px) {
+    header .menuMobile{
+        display: none;
+    }
+
+    header .menuOptions{
+        position: static;
+        z-index: 1;
+
+        height: auto;
+        width: auto;
+        opacity: 1;
+        visibility: visible;
+
+        display: flex;
+
+        flex-direction: row;
+    }
+
+    .menuOptions li{
+        border: none;
+    }
+
+    header .btnsMenu{
+        grid-column: 1;
+    }
+}
