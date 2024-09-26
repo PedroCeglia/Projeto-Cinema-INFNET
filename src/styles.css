@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --black: #1b1717;
+    --primary-color: #af0d0d;
+    --bd-radius: .3rem;
+}
+
+.containerCards{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    gap: .3rem;
+}
