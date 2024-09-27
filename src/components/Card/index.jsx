@@ -25,13 +25,11 @@ export default function Card(){
 
     return(
         <div className="card">
-            <div className="img"></div>
+            <img src="https://www.cinemark.com.br/_next/image?url=https%3A%2F%2Fcdnim.prd.cineticket.com.br%2Fimages%2Fcms%2FmoviePoster%2FMoviePoster-d37b9a19-e4f3-4c37-a6c5-ad074b0f9933.png&w=1920&q=100" alt={filme.titulo} />
             <div className="infos">
             <h3 className='titulo'>{filme.titulo}</h3>
                 <p className="genero">Drama</p>
-                {/* <p className="separador">●</p> */}
                 <p className="duracao">102m</p>
-                {/* <p className="separador">●</p> */}
                 <p className="indicacao" style={{backgroundColor: corIndicacao(filme.indicacao)}}>{filme.indicacao}</p>
             </div>
         </div>
