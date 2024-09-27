@@ -77,6 +77,9 @@ footer {
   align-items: flex-end;
   width: 99%;
 }
+.infinito {
+  font-size: 1.3rem;
+}
 /* Media Queries */
 
 /* 4K - Tamanho maior */
@@ -85,7 +88,9 @@ footer {
     margin: 4rem;
     gap: 2rem;
   }
-
+  .Redes {
+    width: 70%;
+  }
   .redesSociais {
     padding: 0.8rem 1rem;
     font-size: 2rem;
@@ -105,7 +110,9 @@ footer {
   .filhosFooter {
     margin: 3rem;
   }
-
+  .Redes {
+    width: 75%;
+  }
   .redesSociais {
     font-size: 1.5rem;
     padding: 0.8rem 0.7rem;
@@ -125,12 +132,12 @@ footer {
   .filhosFooter {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-row: 1fr 1fr;
+    grid-row: 1fr 1fr 1fr 1fr;
     align-items: center;
   }
   .siga-nos {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 4;
   }
   .redesSociais {
     font-size: 1rem;
@@ -143,7 +150,7 @@ footer {
 
   .cadastrar {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 4;
     padding: 0.8rem;
   }
 }
@@ -153,7 +160,7 @@ footer {
   .filhosFooter {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-row: 1fr 1fr;
+    grid-row: 1fr 1fr 1fr 1fr;
     align-items: center;
   }
   .siga-nos {

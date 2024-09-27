@@ -4,14 +4,14 @@ export default function Footer() {
   return (
     <>
       <footer>
-        <div class="filhosFooter Redes">
-          <div class="cadastrar">
-            <a href="" class="linkfooter cadastrarSe">
+        <div className="filhosFooter Redes">
+          <div className="cadastrar">
+            <a href="" className="linkfooter cadastrarSe">
               CADASTRE-SE
             </a>
           </div>
-          <h3 class="siga-nos">Siga-nos</h3>
-          <div class="redesSociais">
+          <h3 className="siga-nos">Siga-nos</h3>
+          <div className="redesSociais">
             <ReactSocialMediaIcons
               borderColor="rgba(0,0,0,0.25)"
               icon="facebook"
@@ -19,7 +19,7 @@ export default function Footer() {
               backgroundColor="black"
             />
           </div>
-          <div class="redesSociais">
+          <div className="redesSociais">
             <ReactSocialMediaIcons
               borderColor="rgba(0,0,0,0.25)"
               icon="instagram"
@@ -27,7 +27,7 @@ export default function Footer() {
               iconColor="#c94e1a"
             />
           </div>
-          <div class="redesSociais">
+          <div className="redesSociais">
             <ReactSocialMediaIcons
               borderColor="rgba(0,0,0,0.25)"
               icon="youtube"
@@ -35,7 +35,7 @@ export default function Footer() {
               iconColor="#c94e1a"
             />
           </div>
-          <div class="redesSociais">
+          <div className="redesSociais">
             <ReactSocialMediaIcons
               borderColor="rgba(0,0,0,0.25)"
               icon="linkedin"
@@ -43,7 +43,7 @@ export default function Footer() {
               iconColor="#c94e1a"
             />
           </div>
-          <div class="redesSociais">
+          <div className="redesSociais">
             <ReactSocialMediaIcons
               borderColor="rgba(0,0,0,0.25)"
               icon="twitter"
@@ -52,21 +52,21 @@ export default function Footer() {
             />
           </div>
         </div>
-        <div class="filhosFooter">
-          <div class="caixinhas">
+        <div className="filhosFooter">
+          <div className="caixinhas">
             <h3>TOP FILMES DA SEMANA</h3>
             <p>
-              <a href="" target="_blank" class="linkfooter">
+              <a href="" target="_blank" className="linkfooter">
                 Filme-1
               </a>
             </p>
             <p>
-              <a href="" target="_blank" class="linkfooter">
+              <a href="" target="_blank" className="linkfooter">
                 Filme-2
               </a>
             </p>
             <p>
-              <a href="" target="_blank" class="linkfooter">
+              <a href="" target="_blank" className="linkfooter">
                 Filme-3
               </a>
             </p>
@@ -76,43 +76,45 @@ export default function Footer() {
               </a>
             </p>
             <p>
-              <a href="" target="_blank" class="linkfooter">
+              <a href="" target="_blank" className="linkfooter">
                 Filme-5
               </a>
             </p>
           </div>
-          <div class="caixinhas">
+          <div className="caixinhas">
             <h3>SNACK BAR</h3>
             <p>
-              <a href="" target="_blank" class="linkfooter">
+              <a href="" target="_blank" className="linkfooter">
                 Snack Bar
               </a>
             </p>
           </div>
-          <div class="caixinhas">
+          <div className="caixinhas">
             <h3>PARA EMPRESAS</h3>
             <p>
-              <a href="" target="_blank" class="linkfooter">
+              <a href="" target="_blank" className="linkfooter">
                 Reserva de salas
               </a>
             </p>
             <p>
-              <a href="" target="_blank" class="linkfooter">
+              <a href="" target="_blank" className="linkfooter">
                 Vouchers
               </a>
             </p>
           </div>
-          <div class="caixinhas">
+          <div className="caixinhas">
             <h3>CONTATO</h3>
             <p>
-              <a target="_blank" href="" class="linkfooter">
+              <a target="_blank" href="" className="linkfooter">
                 Central de atendimento
               </a>
             </p>
           </div>
         </div>
         <div class="info">
-          <p>Insira aqui o nome da empresa &copy;</p>
+          <p>
+            Cinema <span className="infinito">∞</span> &copy;
+          </p>
         </div>
       </footer>
     </>
