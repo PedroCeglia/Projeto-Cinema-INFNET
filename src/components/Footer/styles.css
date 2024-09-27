@@ -123,10 +123,15 @@ footer {
 /* Tablet - 760px */
 @media screen and (max-width: 760px) {
   .filhosFooter {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 1fr 1fr;
     align-items: center;
   }
-
+  .siga-nos {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
   .redesSociais {
     font-size: 1rem;
     padding: 0.8rem 0.7rem;
@@ -137,6 +142,8 @@ footer {
   }
 
   .cadastrar {
+    grid-column-start: 1;
+    grid-column-end: 3;
     padding: 0.8rem;
   }
 }
