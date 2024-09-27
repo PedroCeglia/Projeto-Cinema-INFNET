@@ -113,7 +113,7 @@ export default function Footer() {
           </div>
         </div>
         <div class="info">
-          <p>Insira aqui o nome da empresa &copy;</p>
+          <p>Cinema ∞ &copy;</p>
         </div>
       </footer>
     </>
