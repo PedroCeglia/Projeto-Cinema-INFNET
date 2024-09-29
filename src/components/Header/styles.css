@@ -12,37 +12,48 @@ header{
 }
 
 header .menuOptions{
-    list-style: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-
-    height: 100vh;
-    width: 0;
-    opacity: 0;
-    visibility: hidden;
-
-    transition: all .5s ease-in-out;
-
-    background-color: var(--black);
-}
-
-header .menuOptions.open{
-    width: 80vw;
-    opacity: 1;
-    visibility: visible;
-    z-index: 2;
-}
-
-.menuOptions li{
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--primary-color);
     text-transform: uppercase;
     font-weight: 800;
     text-wrap: nowrap;
 
     cursor: pointer;
+}
+
+header .menuOptionsDesktop{
+    display: none;
+}
+
+header .containerMenuOptionsMobile{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header .btnCloseMenuMobile{
+    display: block;
+    margin: 1rem;
+    margin-bottom: 0;
+}
+
+header .menuOptionsMobile{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 80vw;
+
+    animation: appear .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+
+    background-color: var(--black);
+}
+
+.menuOptionsMobile li{
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--primary-color);
 }
 
 header h1{
@@ -51,18 +62,21 @@ header h1{
 }
 
 header .btnsMenu{
-    display: flex;
     grid-column: 3 / 4;
     grid-row: 1;
+
+    display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    gap: .5rem;
 }
 
 header span{
     font-size: 2rem;
     cursor: pointer;
-    height: 35px;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -125,6 +139,10 @@ header span{
     &:hover{
         background-color: #0000000f;
     }
+}
+
+.modalLogin h1{
+    color: var(--primary-color);
 }
 
 .modalLogin form{
@@ -202,24 +220,13 @@ form input[type="submit"]{
         display: none;
     }
 
-    header .menuOptions{
-        position: static;
-
-        height: 100%;
-        width: auto;
-        opacity: 1;
-        visibility: visible;
-
+    header .menuOptionsDesktop{
         display: flex;
-
         flex-direction: row;
+        justify-content: space-evenly;
     }
 
-    .menuOptions li{
-        border: none;
-        padding-top: 0;
-        padding-bottom: 0;
-
+    .menuOptionsDesktop li{
         &:hover{
             color: #c9c9c9;
         }
