@@ -25,3 +25,11 @@ body{
     gap: .3rem;
     overflow-x: scroll;
 }
+
+.title{
+    padding: 1rem;
+    color: var(--black);
+    font-weight: 800;
+    padding-bottom: 0;
+    text-transform: uppercase;
+}
