@@ -14,12 +14,14 @@ export default function Header(){
     const [icone, setIcone] = useState(CiShoppingCart)
     const [opacity, setOpacity] = useState(0)
 
-
+    // evento de clique do ícone menu mobile e usado no ícone de fechar o menu mobile também, se aberto fecha e se fechado abre
     const handleClickMenuMobile = () => {
         if(!clickMenuMobile){
             setOpacity(1)
             setClickMenuMobile(true)
             document.body.style.overflow = 'hidden';
+
+        // uso do else pois o clique no btn de fechar o menu chama essa mesma função
         } else {
             setOpacity(0)
             setTimeout(() => {
@@ -29,8 +31,11 @@ export default function Header(){
         }
     }
 
+    // evento de clique na div pai do menu mobile
     const handleClickForaMenuMobile = (click) => {
         let clickOpcaoMenu = click.nodeName === 'LI' && click.parentElement.classList.contains(`${styles.menuOptionsMobile}`)
+
+        // se o target do clique for fora da div com classe menuOptionsMobile ou o target for um de seus Li's, fecha o menu mobile
         if(!document.querySelector(`.${styles.menuOptionsMobile}`).contains(click) || clickOpcaoMenu){
             setOpacity(0)
             setTimeout(() => {
@@ -44,6 +49,7 @@ export default function Header(){
     // eventos de login e cadastro
     const [clickLogin, setClickLogin] = useState(false)
 
+     // evento de clique do ícone usuário e usado no ícone de fechar o modal login também, se aberto fecha e se fechado abre
     const handleLogin = () => {
         if(!clickLogin){
             setClickLogin(true)
@@ -60,6 +66,7 @@ export default function Header(){
         }
     }
 
+    // evento de clique na div pai do modal login
     const handleClickForaModal = (click) => {
         if(!document.querySelector(`.${styles.modalLogin}`).contains(click)){
             setOpacity(0)
@@ -84,6 +91,8 @@ export default function Header(){
                         <li>Pré-Venda</li>
                         <li>Sua Sessão</li>
                     </ul>
+
+                    {/* Setado para aparecer somente se o usuário clicar no ícone do menu */}
                     {clickMenuMobile && 
                     <div className={styles.containerMenuOptionsMobile} onClick={(e) => handleClickForaMenuMobile(e.target)}>
                         <ul className={`${styles.menuOptionsMobile} ${styles.menuOptions}`} style={{opacity: opacity}}>
@@ -103,6 +112,7 @@ export default function Header(){
                 </div>
             </header>
 
+            {/* Setado para aparecer somente se o usuário clicar no ícone de login */}
             {clickLogin && 
                 <div className={styles.containerModalLogin} onClick={(e) => handleClickForaModal(e.target)}>
                     <div className={styles.modalLogin} style={{opacity: opacity}}>
