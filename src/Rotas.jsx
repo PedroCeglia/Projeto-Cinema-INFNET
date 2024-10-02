@@ -1,46 +1,32 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import App from "./App"
+import EstruturaPagina from "./pages/EstruturaPagina"
+import Home from "./pages/Home"
+import Filme from "./pages/Filme"
 
-const rotasCinema = [
-    {
-        path:"/cinemas",
-        element:<h1>Cinemas: Escolher Cinema</h1>
-    },
-    {
-        path:"/cinema/:cinemaId",
-        element:<h1>Cinema: Escolher Filme</h1>
-    },
-    {
-        path:"/cinema/:cinemaId/:filmeId",
-        element:<h1>Cinema: Filme: Escolher Sessão</h1>,
-    },
-    {
-        path:"/cinema/:cinemaId/:filmeId/:sessaoId",
-        element:<h1>Cinema: Filme: Sessão: Escolher Ascentos</h1>
-    }
-]
 const rotasFilmes = [
     {
         path:"/filme/:filmeId",
-        element:<h1>Filme: Escolher Cinema</h1>
+        element:<Filme/>
     },
     {
-        path:"/filme/:filmeId/:cinemaId",
-        element:<h1>Filme: Cinema: Escolher Sessão</h1>
+        path:"/filme/:filmeId/:sessaoId",
+        element:<h1>Filme: Sessão: Escolher Assento</h1>
     },
-    {
-        path:"/filme/:filmeId/:cinemaId/:sessaoId",
-        element:<h1>Filme: Cinemas: Sessão: Escolher Ascentos</h1>
-    },
+
 ]
 
 const router = createBrowserRouter([
     {
         path:"/",
-        element:<App/>
+        element:<EstruturaPagina/>,
+        children:[
+            {
+                path:"/",
+                element:<Home/>
+            }, ...rotasFilmes
+        ]
     },
-    ...rotasCinema,
-    ...rotasFilmes,
     {
         path:"*",
         element:<h1>Nenhuma pagina foi encontrada!</h1>
