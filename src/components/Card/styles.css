@@ -4,6 +4,7 @@
     border-bottom: none;
     height: 400px;
     width: 200px;
+    min-width: 200px;
     /* margin: 1rem; */
 }
 
