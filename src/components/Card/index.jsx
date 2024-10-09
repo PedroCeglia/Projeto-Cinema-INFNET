@@ -1,6 +1,6 @@
 import './styles.css'
 
-export default function Card({filme}){
+export default function Card({titulo = "", imageSrc = "", genero = "Drama", indicacao = 16}){
 
     let coresIndicacao = {
         10: '#4193D5',
@@ -21,12 +21,12 @@ export default function Card({filme}){
         <div className="card">
             <div className="img"></div>
             <div className="infos">
-            <h3 className='titulo'>{filme.title}</h3>
+            <h3 className='titulo'>{titulo}</h3>
                 <p className="genero">Drama</p>
                 {/* <p className="separador">●</p> */}
                 <p className="duracao">102m</p>
                 {/* <p className="separador">●</p> */}
-                <p className="indicacao" style={{backgroundColor: corIndicacao(filme.indicacao)}}>{filme.adult}</p>
+                <p className="indicacao" style={{backgroundColor: corIndicacao(indicacao)}}>{indicacao}</p>
             </div>
         </div>
     )
