@@ -1,36 +1,48 @@
-import { useState } from 'react';
-import './styles.css'
+import { useState } from 'react'
+import styles from './styles.module.css'
 
-import { BsList } from "react-icons/bs";
-import { BsX } from "react-icons/bs";
-import { GoPerson } from "react-icons/go";
-import { CiShoppingCart } from "react-icons/ci";
+import { BsList } from "react-icons/bs"
+import { BsX } from "react-icons/bs"
+import { GoPerson } from "react-icons/go"
+import { CiShoppingCart } from "react-icons/ci"
 
 
 export default function Header(){
 
     // eventos do menu mobile
-    const [icone, setIcone] = useState(CiShoppingCart)
+    const [clickMenuMobile, setClickMenuMobile] = useState(false)
+    const [iconMenu, setIconMenu] = useState(CiShoppingCart)
+    const [styleMenuMobile, setStyleMenuMobile] = useState("")
 
-    const clickMenuMobile = (btn) => {
-        let menuOptionsMobile = document.querySelector('.menuOptions')
-        menuOptionsMobile.classList.add('open')
-        setIcone(BsX)
-        document.body.style.overflow = 'hidden';
+    const handleMobileMenu = () => {
+        if (!clickMenuMobile) {
+          setClickMenuMobile(true)
+          setIconMenu(BsX)
+          document.body.style.overflow = "hidden"
+        } else {
+          setStyleMenuMobile("translateX(-100%)")
+          setTimeout(() => {
+            setStyleMenuMobile("")
+            setClickMenuMobile(false)
+            setIconMenu(CiShoppingCart)
+            document.body.style.removeProperty("overflow")
+          }, 500)
+        }
+      };
+    
+      const handleClickForaMenuMobile = (click) => {
+        let clickOpcaoMenu = click.nodeName === "LI"
+        if (
+          clickMenuMobile &&
+          (!document
+            .querySelector(`.${styles.menuOptionsMobile}`)
+            .contains(click) ||
+            clickOpcaoMenu)
+        ) {
+          handleMobileMenu()
+        }
+      };
 
-        document.addEventListener('click', (click) => {
-            let displayStyle = window.getComputedStyle(menuOptionsMobile).opacity === '1';
-            let cliqueOpcaoMenu = click.target.nodeName === 'LI' && click.target.parentElement.classList.contains('menuOptions')
-
-            if(displayStyle){
-                if(!menuOptionsMobile.contains(click.target) || cliqueOpcaoMenu){
-                    menuOptionsMobile.classList.remove('open')
-                    setIcone(CiShoppingCart)
-                    document.body.style.removeProperty('overflow');
-                }
-            }
-        })
-    }
 
     // eventos de login e cadastro
     const [clickLogin, setClickLogin] = useState(false)
@@ -40,41 +52,33 @@ export default function Header(){
         if(!clickLogin){
             setClickLogin(true)
             setOpacity(1)
-            document.body.style.overflow = 'hidden';
-
-            // document.addEventListener('click', (click) => {
-            //     let modalLogin = document.querySelector('.modalLogin')
-            //     let bodyStyle = window.getComputedStyle(document.body).overflow === 'hidden'
-            //     console.log(bodyStyle)
-            //     if(bodyStyle){
-            //         console.log(click.target)
-            //         if(!modalLogin.contains(click.target)){
-            //             console.log('fora')
-            //             setClickLogin(false)
-            //             document.body.style.removeProperty('overflow');
-            //         } else {
-            //             console.log('dentro')
-            //         }
-            //     }
-            // })
+            document.body.style.overflow = 'hidden'
+            if(clickMenuMobile)handleMobileMenu()
 
         } else {
             setOpacity(0)
             setTimeout(() => {
                 setClickLogin(false)
                 document.body.style.removeProperty('overflow');
-            }, 300)
+            }, 500)
         }
     }
+
+    const handleClickForaLogin = (click) => {
+        if ((!document.querySelector(`.${styles.modalLogin}`).contains(click))) {
+            handleLogin();
+        }
+      };
+
 
     return(
         <>
             <header>
-                <span className='menuMobile' onClick={(e) => clickMenuMobile(e.target)}><BsList /></span>
+                <span className={styles.menuMobile} onClick={(e) => handleMobileMenu(e.target)}><BsList /></span>
             
                 <h1>Cinema ∞</h1>
-                <nav>
-                    <ul className='menuOptions'>
+                <nav className={clickMenuMobile === true ? `${styles.containerMenuMobile}` : ""} onClick={(e) => handleClickForaMenuMobile(e.target)}>
+                    <ul className={clickMenuMobile === true ? `${styles.menuOptionsMobile} ${styles.menuOptions}` : `${styles.menuOptionsDesktop} ${styles.menuOptions}`} style={{ transform: styleMenuMobile }}>
                         <li>Programação</li>
                         <li>Em Cartaz</li>
                         <li>Em Breve</li>
@@ -82,16 +86,16 @@ export default function Header(){
                         <li>Sua Sessão</li>
                     </ul>
                 </nav>
-                <div className='btnsMenu'>
-                    <span onClick={handleLogin}><GoPerson /></span>
-                    <span>{icone}</span>
+                <div className={styles.btnsMenu}>
+                    <span className={styles.loginBtn} onClick={handleLogin}><GoPerson /></span>
+                    <span>{iconMenu}</span>
                 </div>
             </header>
 
             {clickLogin && 
-                <div className="containerModalLogin">
-                    <div className="modalLogin" style={{opacity: opacity}}>
-                        <span className='btnCloseLogin' onClick={handleLogin}><BsX /></span>
+                <div className={styles.containerModalLogin} onClick={(e) => handleClickForaLogin(e.target)}>
+                    <div className={styles.modalLogin} style={{opacity: opacity}}>
+                        <span className={styles.btnCloseLogin} onClick={handleLogin}><BsX /></span>
                         <h2>Faça login para comprar seu ingresso</h2>
                         <form action="">
                             <div>
@@ -105,12 +109,12 @@ export default function Header(){
                             <input type="submit" value="Entrar" />
                         </form>
                         <p>ou</p>
-                        <button className='btnLoginGoogle'>
+                        <button className={styles.btnLoginGoogle}>
                             <img src="https://logopng.com.br/logos/google-37.png" alt="google logo" />
                             Continuar com o Google
                         </button>
                         <hr />
-                        <p className='cadastro'>
+                        <p className={styles.cadastro}>
                             Ainda não tem cadastro no cinema ∞?
                             <a href="http://" target="_blank" rel="noopener noreferrer">Crie uma conta.</a>
                         </p>
