@@ -1,0 +1,257 @@
+header{
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+
+    position: relative;
+
+    padding: .5rem;
+
+    background-color: var(--black);
+    color: var(--primary-color);
+}
+
+header h1{
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+header .btnsMenu{
+    grid-column: 3 / 4;
+    grid-row: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .5rem;
+}
+
+header span{
+    font-size: 2rem;
+    cursor: pointer;
+    height: 35px;
+}
+
+header .loginBtn{
+    z-index: 2;
+}
+
+header nav {
+    display: none;
+}
+
+header nav.containerMenuMobile {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+header .menuOptionsDesktop {
+    display: none;
+}
+
+header .menuOptionsMobile {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 70vw;
+
+    animation: Appear-Left-Right 0.5s ease-in-out;
+
+    background-color: var(--black);
+
+    transition: all 0.5s ease-in-out;
+}
+
+.menuOptions li {
+    cursor: pointer;
+    padding: 2rem;
+    font-weight: 700;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+
+/* Modal Login */
+
+.containerModalLogin{
+    position: fixed;
+    background-color: #000000b5;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.modalLogin{
+    animation: Appear-Opacity .5s ease-in;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 80vw;
+    max-width: 400px;
+    /* height: 60vh; */
+
+    padding: 1.5rem 1rem;
+    border-radius: var(--bd-radius);
+    /* opacity: 0; */
+
+    text-align: center;
+
+    background-color: #fff;
+
+    transition: opacity .3s ease-in-out;
+}
+
+.modalLogin.open{
+    opacity: 1;
+}
+
+.modalLogin .btnCloseLogin{
+    align-self: flex-end;
+    font-size: 1.5rem;
+    margin: -.5rem 0;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+        background-color: #0000000f;
+    }
+}
+
+.modalLogin h1{
+    color: var(--primary-color);
+}
+
+.modalLogin form{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-align: left;
+}
+
+form div{
+    display: flex;
+    flex-direction: column;
+}
+
+form div label{
+    font-size: .9rem;
+    margin-bottom: .2rem;
+}
+
+form div input{
+    padding: .5rem;
+    border-radius: var(--bd-radius);
+    border: 1px solid var(--black);
+}
+
+form input[type="submit"]{
+    padding: .3rem;
+    border-radius: var(--bd-radius);
+    border: 1px solid var(--black);
+    background-color: var(--primary-color);
+}
+
+.modalLogin .btnLoginGoogle{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    padding: .3rem;
+    border: 1px solid var(--black);
+    border-radius: var(--bd-radius);
+}
+
+.modalLogin .btnLoginGoogle img{
+    width: 20px;
+    height: 20px;
+}
+
+.modalLogin hr{
+    margin-top: .5rem;
+}
+
+.modalLogin .cadastro{
+    font-size: .9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+@keyframes Appear-Left-Right {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes Appear-Opacity {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    header .menuMobile {
+        display: none;
+    }
+    
+    header nav {
+        display: block;
+    }
+    
+    header .menuOptionsDesktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: static;
+
+        text-wrap: nowrap;
+    
+        width: auto;
+    }
+    
+    .menuOptions li {
+        transition: all 0.3s ease-in-out;
+        border-color: var(--black);
+        padding: 1.5rem;
+    
+        &:hover {
+          color: #c9c9c9;
+          border-color: #c9c9c9;
+        }
+    }
+}

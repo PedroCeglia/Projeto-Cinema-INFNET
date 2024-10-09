@@ -2,7 +2,6 @@ import "./styles.css";
 import { ReactSocialMediaIcons } from "react-social-media-icons";
 export default function Footer() {
   return (
-    <>
       <footer>
         <div className="filhosFooter Redes">
           <div className="cadastrar">
@@ -116,7 +115,9 @@ export default function Footer() {
             Cinema <span className="infinito">∞</span> &copy;
           </p>
         </div>
-      </footer>
-    </>
+      <div class="info">
+        <p>Insira aqui o nome da empresa &copy;</p>
+      </div>
+    </footer>
   );
 }

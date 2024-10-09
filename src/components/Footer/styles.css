@@ -1,5 +1,3 @@
-
-
 footer {
   width: 100%;
   display: flex;
@@ -7,7 +5,8 @@ footer {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  background-color: black;
+  background-color: var(--black);
+  padding: 2rem;
 }
 
 /* Estilos gerais */
@@ -22,7 +21,7 @@ footer {
 
 .linkfooter {
   text-decoration: none;
-  color: #c94e1a;
+  color: var(--primary-color);
 }
 
 .linkfooter:hover {
@@ -42,10 +41,10 @@ footer {
 }
 
 .redesSociais {
-  color: #c94e1a;
+  color: var(--primary-color);
   padding: 0.8rem 0.7rem;
   border-radius: 20%;
-  background-color: rgba(41, 41, 41, 0.685);
+  background-color: rgb(82, 82, 82);
 }
 
 .siga-nos {
@@ -54,8 +53,9 @@ footer {
 }
 
 .cadastrar {
-  border: 1px solid #c94e1a;
-  box-shadow: 1px 2px #c94e1a;
+  border: 1px solid var(--primary-color);
+  box-shadow: 1px 2px var(--primary-color);
+
   border-radius: 15%;
   padding: 0.8rem;
   background-color: whitesmoke;
@@ -74,9 +74,11 @@ footer {
   align-items: flex-end;
   width: 99%;
 }
+
 .infinito {
   font-size: 1.3rem;
 }
+
 /* Media Queries */
 
 /* 4K - Tamanho maior */
@@ -85,9 +87,7 @@ footer {
     margin: 4rem;
     gap: 2rem;
   }
-  .Redes {
-    width: 70%;
-  }
+
   .redesSociais {
     padding: 0.8rem 1rem;
     font-size: 2rem;
@@ -107,9 +107,7 @@ footer {
   .filhosFooter {
     margin: 3rem;
   }
-  .Redes {
-    width: 75%;
-  }
+
   .redesSociais {
     font-size: 1.5rem;
     padding: 0.8rem 0.7rem;
@@ -127,15 +125,10 @@ footer {
 /* Tablet - 760px */
 @media screen and (max-width: 760px) {
   .filhosFooter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row: 1fr 1fr 1fr 1fr;
+    flex-direction: column;
     align-items: center;
   }
-  .siga-nos {
-    grid-column-start: 1;
-    grid-column-end: 4;
-  }
+
   .redesSociais {
     font-size: 1rem;
     padding: 0.8rem 0.7rem;
@@ -146,8 +139,6 @@ footer {
   }
 
   .cadastrar {
-    grid-column-start: 1;
-    grid-column-end: 4;
     padding: 0.8rem;
   }
 }
@@ -155,15 +146,10 @@ footer {
 /* Mobile Large - 425px */
 @media screen and (max-width: 425px) {
   .filhosFooter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row: 1fr 1fr 1fr 1fr;
+    flex-direction: column;
     align-items: center;
   }
-  .siga-nos {
-    grid-column-start: 1;
-    grid-column-end: 3;
-  }
+
   .redesSociais {
     font-size: 1rem;
     padding: 0.4rem 0.5rem;
@@ -174,8 +160,49 @@ footer {
   }
 
   .cadastrar {
-    grid-column-start: 1;
-    grid-column-end: 3;
     padding: 0.7rem;
   }
 }
+
+/* Mobile - 375px */
+@media screen and (max-width: 375px) {
+  .filhosFooter {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .redesSociais {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.4rem;
+  }
+
+  .caixinhas {
+    font-size: 0.8rem;
+  }
+
+  .cadastrar {
+    padding: 0.6rem;
+  }
+}
+
+/* Mobile Small - 320px */
+@media screen and (max-width: 320px) {
+  .filhosFooter {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .redesSociais {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  .caixinhas {
+    font-size: 0.7rem;
+  }
+
+  .cadastrar {
+    padding: 0.5rem;
+  }
+}
+

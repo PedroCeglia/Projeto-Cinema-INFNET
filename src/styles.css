@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", system-ui;
+    
+    list-style: none;
+
+    scroll-behavior: smooth;
 }
 
 :root{
@@ -11,13 +16,22 @@
     --bd-radius: .3rem;
 }
 
+body{
+    background-color: var(--primary-color);
+}
+
 .containerCards{
     display: flex;
     flex-direction: row;
     padding: 1rem;
     gap: .3rem;
+    overflow-x: scroll;
 }
 
-body{
-    background-color: var(--primary-color);
+.title{
+    padding: 1rem;
+    color: var(--black);
+    font-weight: 800;
+    padding-bottom: 0;
+    text-transform: uppercase;
 }
