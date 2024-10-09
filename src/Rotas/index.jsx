@@ -1,8 +1,7 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
-import App from "./App"
-import EstruturaPagina from "./pages/EstruturaPagina"
-import Home from "./pages/Home"
-import Filme from "./pages/Filme"
+import EstruturaPagina from "../pages/EstruturaPagina"
+import Home from "../pages/Home"
+import Filme from "../pages/Filme"
 
 const rotasFilmes = [
     {
