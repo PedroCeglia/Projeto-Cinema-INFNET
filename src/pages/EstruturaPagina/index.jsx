@@ -7,7 +7,7 @@ export default function EstruturaPagina(){
     return (
         <div className={styles.Container}>
             <Header/>
-            <Outlet/>
+            <Outlet className={styles.Content}/>
             <Footer/>
         </div>
     )
