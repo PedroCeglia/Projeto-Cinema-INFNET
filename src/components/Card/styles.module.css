@@ -1,4 +1,5 @@
 .card{
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     height: 400px;
