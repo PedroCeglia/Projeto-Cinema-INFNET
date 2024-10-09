@@ -247,6 +247,7 @@ form input[type="submit"]{
     .menuOptions li {
         transition: all 0.3s ease-in-out;
         border-color: var(--black);
+        padding: 1.5rem;
     
         &:hover {
           color: #c9c9c9;
