@@ -1,0 +1,52 @@
+.FilmesContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: rgba(255,255,255,.6);
+    overflow-x: hidden;
+}
+
+.FilmesContainer h3{
+    margin: 20px 20px 10px;
+}
+
+.FilmesContainerList{
+    max-width: calc(100vw);
+    overflow: auto;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    
+    gap: .3rem;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+
+.FilmesContainerList::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px; 
+  }
+  
+
+  
+.FilmesContainerList::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #210202; 
+  }
+  
+ 
+  ::-webkit-scrollbar-thumb {
+    background: #7a1414; 
+    border-radius: 10px; 
+    border: 3px solid #5f1717; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #814040; 
+  }
+  

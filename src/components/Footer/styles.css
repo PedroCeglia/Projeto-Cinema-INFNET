@@ -1,4 +1,5 @@
 footer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -54,6 +55,7 @@ footer {
 .cadastrar {
   border: 1px solid var(--primary-color);
   box-shadow: 1px 2px var(--primary-color);
+
   border-radius: 15%;
   padding: 0.8rem;
   background-color: whitesmoke;
@@ -72,6 +74,11 @@ footer {
   align-items: flex-end;
   width: 99%;
 }
+
+.infinito {
+  font-size: 1.3rem;
+}
+
 /* Media Queries */
 
 /* 4K - Tamanho maior */
@@ -198,3 +205,4 @@ footer {
     padding: 0.5rem;
   }
 }
+

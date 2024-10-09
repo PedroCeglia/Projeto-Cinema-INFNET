@@ -5,6 +5,7 @@
     width: 215px;
     border-radius: var(--bd-radius);
     box-shadow: 0px 0px 5px 0px #6b270b;
+    min-width: 215px;
 }
 
 .card img{

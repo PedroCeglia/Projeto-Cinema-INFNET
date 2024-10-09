@@ -1,6 +1,11 @@
 import styles from './styles.module.css'
 
-export default function Card(){
+export default function Card({
+    titulo = "", 
+    imageSrc = "https://www.cinemark.com.br/_next/image?url=https%3A%2F%2Fcdnim.prd.cineticket.com.br%2Fimages%2Fcms%2FmoviePoster%2FMoviePoster-d37b9a19-e4f3-4c37-a6c5-ad074b0f9933.png&w=1920&q=100", 
+    genero = "Drama", 
+    indicacao = 16
+}){
 
     let coresIndicacao = {
         10: '#4193D5',
@@ -11,26 +16,20 @@ export default function Card(){
         L: '#4AA35A'
     }
 
-    let filme = {
-        titulo: 'Coringa: Delírio a Dois ',
-        genero: 'Drama',
-        duracao: '102m',
-        indicacao: 10
-    }
 
     const corIndicacao = (indicacao) => {
         let indexCor = Object.keys(coresIndicacao).indexOf(String(indicacao))
         return Object.values(coresIndicacao)[indexCor]
     }
-
+    
     return(
         <div className={styles.card}>
-            <img src="https://www.cinemark.com.br/_next/image?url=https%3A%2F%2Fcdnim.prd.cineticket.com.br%2Fimages%2Fcms%2FmoviePoster%2FMoviePoster-d37b9a19-e4f3-4c37-a6c5-ad074b0f9933.png&w=1920&q=100" alt={filme.titulo} />
+            <img src={imageSrc} alt={titulo} />
             <div className={styles.infos}>
-            <h3 className={styles.titulo}>{filme.titulo}</h3>
-                <p className={styles.genero}>Drama</p>
+            <h3 className={styles.titulo}>{titulo}</h3>
+                <p className={styles.genero}>{genero}</p>
                 <p className={styles.duracao}>102m</p>
-                <p className={styles.indicacao} style={{backgroundColor: corIndicacao(filme.indicacao)}}>{filme.indicacao}</p>
+                <p className={styles.indicacao} style={{backgroundColor: corIndicacao(indicacao)}}>{indicacao}</p>
             </div>
         </div>
     )
