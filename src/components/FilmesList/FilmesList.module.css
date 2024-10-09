@@ -1,4 +1,5 @@
 .FilmesContainer{
+  position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -12,7 +13,7 @@
 }
 
 .FilmesContainerList{
-    max-width: calc(100vw);
+    max-width: calc(100vw - 15px);
     overflow: auto;
     width: 100%;
 
@@ -23,7 +24,12 @@
     
     gap: .3rem;
     margin: 10px 0;
-    padding: 10px;
+    padding: 10px 20px;
+}
+@media (max-width:800px){
+  .FilmesContainerList{
+    max-width: calc(100vw);
+  }
 }
 
 
