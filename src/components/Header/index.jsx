@@ -46,8 +46,8 @@ export default function Header(){
 
     // eventos de login e cadastro
     const [clickLogin, setClickLogin] = useState(false)
-    const [opacity, setOpacity] = useState(0)
 
+     // evento de clique do ícone usuário e usado no ícone de fechar o modal login também, se aberto fecha e se fechado abre
     const handleLogin = () => {
         if(!clickLogin){
             setClickLogin(true)
@@ -92,6 +92,7 @@ export default function Header(){
                 </div>
             </header>
 
+            {/* Setado para aparecer somente se o usuário clicar no ícone de login */}
             {clickLogin && 
                 <div className={styles.containerModalLogin} onClick={(e) => handleClickForaLogin(e.target)}>
                     <div className={styles.modalLogin} style={{opacity: opacity}}>
