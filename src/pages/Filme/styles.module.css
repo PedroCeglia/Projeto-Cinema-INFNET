@@ -1,0 +1,17 @@
+.Container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.ContainerMain{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContainerMain section{
+    width: 100%;
+}
