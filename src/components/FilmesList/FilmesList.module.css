@@ -1,5 +1,5 @@
 .FilmesContainer{
-  position: relative;
+    width: calc(100vw - 15px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -9,14 +9,14 @@
 }
 
 .FilmesContainer h3{
-    margin: 20px 20px 10px;
+    padding-left: 5% ;
+    margin: 20px 20px 0;
 }
 
 .FilmesContainerList{
-    max-width: calc(100vw - 15px);
     overflow: auto;
-    width: 100%;
-
+    width: 90vw;
+    align-self: center;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -27,8 +27,8 @@
     padding: 10px 20px;
 }
 @media (max-width:800px){
-  .FilmesContainerList{
-    max-width: calc(100vw);
+  .FilmesContainer{
+    width: calc(100vw);
   }
 }
 
