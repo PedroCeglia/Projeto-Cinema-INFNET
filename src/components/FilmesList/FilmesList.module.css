@@ -16,6 +16,7 @@
 .FilmesContainerList{
     overflow: auto;
     width: 90vw;
+    height: 460px;
     align-self: center;
     display: flex;
     justify-content: flex-start;
