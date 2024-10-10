@@ -1,0 +1,45 @@
+.Container{
+    max-width: 50vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #21020260;
+
+}
+.ContainerDias{
+    max-width: 48vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 40px;
+    overflow-x: auto;
+}
+
+
+
+.ContainerDias::-webkit-scrollbar {
+    width: 12px; 
+    height: 8px; 
+  }
+  
+
+  
+.ContainerDias::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #21020234; 
+  }
+  
+ 
+.ContainerDias::-webkit-scrollbar-thumb {
+    background: #210202; 
+    border-radius: 10px; 
+    border: 3px solid #210202; 
+}
+  
+.ContainerDias::-webkit-scrollbar-thumb:hover {
+    background: #814040; 
+}
+  
