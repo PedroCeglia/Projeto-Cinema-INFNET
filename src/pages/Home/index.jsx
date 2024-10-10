@@ -1,5 +1,11 @@
 import FilmesList from "../../components/FilmesList";
+import { useState, useEffect } from "react";
+import { useMovieDBContext } from "../../contexts/MovieDB";
 
 export default function Home(){
-    return <FilmesList listaFilmes={[0,1,2,3,4,5,6,7,8,9]} title="Em Breve"/>
+    const [filmeList, setFilmeList] = useState([])
+    const {getFilmeList} = useMovieDBContext()
+
+    useEffect(()=>{getFilmeList(setFilmeList)},[])
+    return <FilmesList listaFilmes={filmeList} title="Em Breve"/>
 }

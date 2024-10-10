@@ -7,7 +7,10 @@ export default function FilmesList({listaFilmes, title=""}){
             <div className={styles.FilmesContainerList}>
                 {
                 listaFilmes.map((item, key) => {
-                    return <FilmeCard key={key}/>
+                    const {backdrop_path, title, id} = item
+                    const urlImage = `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${backdrop_path}`
+
+                    return <FilmeCard key={key} imageSrc={urlImage} titulo={title} idFilme={id}/>
                 })
             }
             </div>
