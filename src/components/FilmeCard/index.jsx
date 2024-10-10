@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 
-export default function Card({
+export default function FilmeCard({
     titulo = "", 
     imageSrc = "https://www.cinemark.com.br/_next/image?url=https%3A%2F%2Fcdnim.prd.cineticket.com.br%2Fimages%2Fcms%2FmoviePoster%2FMoviePoster-d37b9a19-e4f3-4c37-a6c5-ad074b0f9933.png&w=1920&q=100", 
     genero = "Drama", 

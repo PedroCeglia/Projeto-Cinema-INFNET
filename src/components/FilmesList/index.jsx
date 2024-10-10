@@ -1,5 +1,5 @@
 import styles from "./FilmesList.module.css"
-import Card from "../Card"
+import FilmeCard from "../FilmeCard"
 export default function FilmesList({listaFilmes, title=""}){
     return (
         <section className={styles.FilmesContainer}>
@@ -7,7 +7,7 @@ export default function FilmesList({listaFilmes, title=""}){
             <div className={styles.FilmesContainerList}>
                 {
                 listaFilmes.map((item, key) => {
-                    return <Card key={key}/>
+                    return <FilmeCard key={key}/>
                 })
             }
             </div>
