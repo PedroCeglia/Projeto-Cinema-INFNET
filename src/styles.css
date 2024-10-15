@@ -14,24 +14,29 @@
     /* --primary-color: #af0d0d; */
     --primary-color: #c94e1a;
     --bd-radius: .3rem;
+    --padding-section: 1rem 1.5rem;
 }
 
 body{
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-color: #000;
+    color: #fff;
 }
 
-.containerCards{
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-    gap: .3rem;
-    overflow-x: scroll;
-}
+    ::-webkit-scrollbar {
+        width: .35rem;
+    }
+  
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #210202; 
+    }
+  
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: var(--bd-radius);
+    }
 
-.title{
-    padding: 1rem;
-    color: var(--black);
-    font-weight: 800;
-    padding-bottom: 0;
-    text-transform: uppercase;
-}
+    ::-webkit-scrollbar-thumb:active {
+        background: #ff6523; 
+    }

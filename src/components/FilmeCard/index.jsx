@@ -25,7 +25,7 @@ export default function FilmeCard({
     }
     
     return(
-        <article >
+        <article>
             <Link to={`/filme/${idFilme}`} className={styles.card}>
                 <img src={imageSrc} alt={titulo} />
                 <div className={styles.infos}>

@@ -1,38 +1,38 @@
 .Container{
-    max-width: 50vw;
+    /* max-width: 50vw; */
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: #21020260;
+    /* background-color: #21020260; */
 
 }
 .ContainerDias{
-    max-width: 48vw;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 15px;
-    padding: 20px 40px;
+    /* padding: 20px 15px; */
+    padding: 1rem 0;
     overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        height: 3px;
+    }
 }
 
-
-
-.ContainerDias::-webkit-scrollbar {
+/* .ContainerDias::-webkit-scrollbar {
     width: 12px; 
     height: 8px; 
   }
-  
-
   
 .ContainerDias::-webkit-scrollbar-track {
     border-radius: 10px;
     background-color: #21020234; 
   }
   
- 
 .ContainerDias::-webkit-scrollbar-thumb {
     background: #210202; 
     border-radius: 10px; 
@@ -41,5 +41,5 @@
   
 .ContainerDias::-webkit-scrollbar-thumb:hover {
     background: #814040; 
-}
+} */
   
