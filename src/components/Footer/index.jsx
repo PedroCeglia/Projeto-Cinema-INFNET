@@ -115,9 +115,6 @@ export default function Footer() {
             Cinema <span className="infinito">∞</span> &copy;
           </p>
         </div>
-      <div class="info">
-        <p>Insira aqui o nome da empresa &copy;</p>
-      </div>
     </footer>
   );
 }

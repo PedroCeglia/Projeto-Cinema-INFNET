@@ -1,5 +1,10 @@
 import { useState } from 'react'
 import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
+
+import imgLogo from '../../img/cinemaInfinitoLogo.png'
+import imgLogo2 from '../../img/cinemaInfinitoLogo2.png'
+import imgLogo3 from '../../img/cinemaInfinitoLogo3.png'
 
 import { BsList } from "react-icons/bs"
 import { BsX } from "react-icons/bs"
@@ -21,12 +26,12 @@ export default function Header(){
           document.body.style.overflow = "hidden"
         } else {
           setStyleMenuMobile("translateX(-100%)")
-          setTimeout(() => {
-            setStyleMenuMobile("")
-            setClickMenuMobile(false)
-            setIconMenu(CiShoppingCart)
-            document.body.style.removeProperty("overflow")
-          }, 500)
+            setTimeout(() => {
+                setStyleMenuMobile("")
+                setClickMenuMobile(false)
+                setIconMenu(CiShoppingCart)
+                document.body.style.removeProperty("overflow")
+            }, 500)
         }
       };
     
@@ -53,9 +58,15 @@ export default function Header(){
         if(!clickLogin){
             setClickLogin(true)
             setOpacity(1)
-            document.body.style.overflow = 'hidden'
-            if(clickMenuMobile)handleMobileMenu()
-
+            if(clickMenuMobile){
+                handleMobileMenu()
+                setTimeout(() => {
+                    document.body.style.overflow = 'hidden'
+                }, 500)
+            } else {
+                document.body.style.overflow = 'hidden'
+            }
+            
         } else {
             setOpacity(0)
             setTimeout(() => {
@@ -76,8 +87,10 @@ export default function Header(){
         <>
             <header>
                 <span className={styles.menuMobile} onClick={(e) => handleMobileMenu(e.target)}><BsList /></span>
-            
-                <h1>Cinema ∞</h1>
+
+                <Link to={`/`} className={styles.containerLogo}>
+                    <img className={styles.logo} src={imgLogo3} alt="" />
+                </Link>
                 <nav className={clickMenuMobile === true ? `${styles.containerMenuMobile}` : ""} onClick={(e) => handleClickForaMenuMobile(e.target)}>
                     <ul className={clickMenuMobile === true ? `${styles.menuOptionsMobile} ${styles.menuOptions}` : `${styles.menuOptionsDesktop} ${styles.menuOptions}`} style={{ transform: styleMenuMobile }}>
                         <li>Programação</li>

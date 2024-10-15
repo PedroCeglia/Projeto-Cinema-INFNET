@@ -1,17 +1,125 @@
-.Container{
+.container{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 }
-.ContainerMain{
+
+.pageSelectionMobile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pageSelectionMobile p{
+    width: 50%;
+    text-align: center;
+    padding: 1rem;
+    color: #c9c9c9a3;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #c9c9c9a3;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+/* .ContainerMain{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+/* .ContainerMain section{
+    width: 100%;
+} */
+
+.containerHorarios{
+    padding: var(--padding-section);
 }
 
-.ContainerMain section{
+.containerFilmeInfo {
+    padding: var(--padding-section);
+}
+
+.containerFilmeInfo .imagemDescricao{
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    padding-bottom: 1rem;
+    gap: 1rem;
+}
+
+.imagemDescricao img{
+    width: 190px;
+    height: 280px;
+    border-radius: var(--bd-radius);
+    object-fit: cover;
+}
+
+.generoDescricao{
+    margin: auto;
+}
+
+.generoDescricao .genre{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .2rem;
+
+    border: 1px solid var(--black);
+    border-radius: var(--bd-radius);
+    
+    padding: .25rem;
+    margin-bottom: .5rem;
+
+    font-size: .8rem;
+
+    max-width: 170px;
+}
+
+.generoDescricao .descricao{
+    font-size: .9rem;
+}
+
+.infos hr{
+    border-color: var(--black);
+}
+
+.infos div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+}
+
+.infos h4{
+    padding-top: 1rem;
+}
+
+.infos div ul{
+    text-align: right;
+}
+
+@media (min-width: 1024px) {
+    .container{
+        flex-direction: row-reverse;
+        max-width: 1020px;
+        max-width: 61rem;
+
+    }
+
+    .containerFilmeInfo{
+        width: 40%;
+    }
+
+    .containerFilmeInfo .imagemDescricao{
+        flex-direction: column;
+    }
+
+    .containerHorarios{
+        width: 60%;
+        max-height: 855px;
+        overflow-y: scroll;
+    }
 }

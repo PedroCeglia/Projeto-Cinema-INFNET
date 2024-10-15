@@ -19,7 +19,7 @@ export default function SessionRoomList(){
     ]
     return (
         <section className={styles.Container}>
-            <h2 className={styles.Title}>Horarios</h2>
+            <h2 className={styles.Title}>Horários</h2>
             {
                 listaSalas.map((item, key) => {
                     const {dimensao, vip, lingua, sala} = item

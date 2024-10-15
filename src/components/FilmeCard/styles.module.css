@@ -30,12 +30,14 @@
     'titulo titulo titulo'
     'genero duracao indicacao';
 
-    padding: .5rem;
+    padding: .5rem 0.7rem;
     background-color: var(--black);
     color: #c9c9c9;
 
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
+
+    box-shadow: inset 0px 0px 42px -45px rgba(255,255,255,1);
 }
 
 .infos .titulo{

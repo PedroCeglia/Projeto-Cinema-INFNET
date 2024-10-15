@@ -1,22 +1,29 @@
 .FilmesContainer{
-    width: calc(100vw - 15px);
+    /* width: calc(100vw - 15px); */
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color: rgba(255,255,255,.6);
+    /* background-color: rgba(255,255,255,.6); */
     overflow-x: hidden;
+    padding: var(--padding-section);
 }
 
-.FilmesContainer h3{
-    padding-left: 5% ;
-    margin: 20px 20px 0;
+.FilmesContainer .title{
+    /* padding-left: 5%; */
+    /* margin: 20px 20px 0; */
+    /* color: var(--black); */
+    font-weight: 800;
+    text-transform: uppercase;
+    width: 90vw;
+    margin: auto;
 }
 
 .FilmesContainerList{
     overflow: auto;
     width: 90vw;
-    height: 460px;
+    height: 430px;
     align-self: center;
     display: flex;
     justify-content: flex-start;
@@ -24,14 +31,16 @@
     flex-wrap: nowrap;
     
     gap: .3rem;
-    margin: 10px 0;
-    padding: 10px 20px;
+    margin: .5rem 0;
+    /* margin: 10px 0; */
+    /* padding: 10px 20px; */
 }
-@media (max-width:800px){
+
+/* @media (max-width:800px){
   .FilmesContainer{
     width: calc(100vw);
   }
-}
+} */
 
 
 .FilmesContainerList::-webkit-scrollbar {
@@ -48,12 +57,14 @@
   
  
   ::-webkit-scrollbar-thumb {
-    background: #7a1414; 
+    background: var(--primary-color);
+    border-radius: var(--bd-radius);
+    /* background: #7a1414;
     border-radius: 10px; 
-    border: 3px solid #5f1717; 
+    border: 3px solid #5f1717;  */
   }
   
-  ::-webkit-scrollbar-thumb:hover {
-    background: #814040; 
+  ::-webkit-scrollbar-thumb:active {
+    background: #ff6523; 
   }
   
