@@ -63,20 +63,30 @@
 .generoDescricao .genre{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: .2rem;
+    gap: 1rem;
 
     border: 1px solid var(--black);
     border-radius: var(--bd-radius);
     
-    padding: .25rem;
+    padding: .25rem 2rem;
     margin-bottom: .5rem;
 
     font-size: .8rem;
 
     max-width: 170px;
 }
+
+.generoDescricao .genre span{
+    width:40%;
+}
+.generoDescricao .genre img{
+    width:30px;
+    height:30px;
+    object-fit: cover;
+}
+
 
 .generoDescricao .descricao{
     font-size: .9rem;
@@ -85,13 +95,55 @@
 .infos hr{
     border-color: var(--black);
 }
-
+.infos div p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .infos div{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 1.5rem 0;
 }
+div.diretoresContainer{
+    flex-direction: column;
+}
+div.diretoresList{
+    align-self: flex-end;
+    gap: 20px;
+}
+
+.atoresContainer p{
+    align-self: flex-start;
+}
+.atoresList{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    gap: 20px;
+}
+.atoresList li{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+.atoresList span{
+    width:40%;
+}
+
+
+.atoresList img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 
 .infos h4{
     padding-top: 1rem;

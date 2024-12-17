@@ -1,10 +1,54 @@
 import styles from "./styles.module.css"
-import ChoiceSession from "../../components/ChoiceSession"
 import { useState, useEffect } from "react"
+import { useLocation } from "react-router-dom";
+import ChoiceSession from "../../components/ChoiceSession"
+import { getGenerosByIdGenerosList } from "../../constants/generos"
+import { getFilmeDescription, getFilmeElenco } from "../../api/MovieDB";
+
 
 import { FaQuestionCircle } from "react-icons/fa";
 
 export default function Filme(){
+    const pathname = useLocation().pathname
+
+    const [filme, setFilme] = useState(null)
+    const [elenco, setElenco] = useState(null)
+    useEffect(()=>{
+        const idFilme = pathname.split("/")[2]
+        getFilmeDescription(idFilme, setFilme)
+        getFilmeElenco(idFilme, setElenco)
+    },[])
+
+    const {overview, poster_path, genres, release_date, production_companies} = filme || {}
+    const imageSrc = poster_path ? ( 
+        `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${poster_path}` 
+    ) : (
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtEY1E5uyX1bU9au2oF74LoFPdthQlmZ5YIQ&s"
+    )
+    const listaGeneros = genres ? getGenerosByIdGenerosList(genres) : [{id:0, name:"Terror"}]
+    const dataEstreia = release_date ? release_date.split("-") : ["2024", "12", "17"]
+    const nomeDistribuidora = production_companies ? production_companies[0].name : "Warner"
+
+    const {cast, crew} = elenco || {cast:[], crew:[]}
+    const listaDiretores = removerDuplicadosPorId(crew.filter(pessoa => pessoa.known_for_department == "Directing")).slice(0,4)
+    const listaEscritores = removerDuplicadosPorId(crew.filter(pessoa => pessoa.known_for_department == "Writing")).slice(0,4)
+    const listaProdutores = removerDuplicadosPorId(crew.filter(pessoa => pessoa.known_for_department == "Production")).slice(0,4)
+
+    const listaAtores = removerDuplicadosPorId(cast.slice(0,5))
+
+    function removerDuplicadosPorId(lista) {
+        const idsVistos = new Set(); 
+        const resultado = [];
+      
+        for (const item of lista) {
+          if (!idsVistos.has(item.id)) {
+            idsVistos.add(item.id); 
+            resultado.push(item);  
+          }
+        }
+      
+        return resultado;
+    }
 
     const [clickHorarioOption, setClickHorarioOption] = useState(true)
     const [clickSobreOption, setClickSobreOption] = useState(false)
@@ -56,37 +100,68 @@ export default function Filme(){
         {(clickSobreOption || screenWidth >= 1024) &&
             <div className={styles.containerFilmeInfo}>
                 <div className={styles.imagemDescricao}>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtEY1E5uyX1bU9au2oF74LoFPdthQlmZ5YIQ&s" alt="nome-filme" />
+                    <img src={imageSrc} alt="nome-filme" />
                     <div className={styles.generoDescricao}>
-                        <div className={styles.genre}><FaQuestionCircle/> Terror</div> {/*No lugar do ícone é a classificação indicativa*/}
-                        <p className={styles.descricao}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptas recusandae maiores quia nulla accusamus voluptatibus nisi enim, sint laborum ad, tempora ipsum optio nobis assumenda necessitatibus aperiam dignissimos veritatis!</p>
+                        {
+                            listaGeneros.map((genero) => {
+                                return (
+                                    <div className={styles.genre} key={genero.id}>
+                                        {genero.icon ? <img src={genero.icon}/> : <FaQuestionCircle/>} 
+                                        <span>{genero.name || "Terror"}</span>
+                                    </div>
+                                )
+                            })
+                        }
+                        <p className={styles.descricao}>{overview}</p>
                     </div>
                 </div>
                 <div className={styles.infos}>
                     <hr />
                     <div>
                         <p>Data de estreia</p>
-                        <p>03.10.2024</p>
+                        <p>{dataEstreia[2]} / {dataEstreia[1]} / {dataEstreia[0]}</p>
                     </div>
                     <hr />
                     <div>
                         <p>Distribuído por</p>
-                        <p>Warner Bros</p>
+                        <p>{nomeDistribuidora}</p>
                     </div>
                     <hr />
                     <h4>ELENCO E EQUIPE</h4>
-                    <div>
-                        <p>Diretor</p>
-                        <p>Todd Phillips</p>
+                    <div className={styles.diretoresContainer}>
+                        <p><span>Diretor(es)</span> <span>{listaDiretores.length < 1 && "-----------"}</span></p>
+                        <div className={styles.diretoresList}>
+                        {
+                            listaDiretores.map(diretor => <p key={diretor.id}>{diretor.name}</p>)
+                        }
+                        </div>
+
+                        <p><span>Escritores</span> <span>{listaEscritores.length < 1 && "-----------"}</span></p>
+                        <div className={styles.diretoresList}>
+                        {
+                            listaEscritores.map(escritor => <p key={escritor.id}>{escritor.name}</p>)
+                        }
+                        </div>
+
+                        <p><span>Produção</span> <span>{listaProdutores.length < 1 && "-----------"}</span></p>
+                        <div className={styles.diretoresList}>
+                        {
+                            listaProdutores.map(produtor => <p key={produtor.id}>{produtor.name}</p>)
+                        }
+                        </div>
                     </div>
                     <hr />
-                    <div>
+                    <div className={styles.atoresContainer}>
                         <p>Elenco</p>
-                        <ul>
-                            <li>Joaquin Phoenix</li>
-                            <li>Lady Gaga</li>
-                            <li>Brendan Gleeson</li>
-                            <li>Zazie Beetz</li>
+                        <ul className={styles.atoresList}>
+                            {
+                                listaAtores.map(ator => (
+                                <li key={ator.id}>
+                                    <img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${ator.profile_path}`} alt={ator.name}/>
+                                    <span>{ator.name}</span>
+                                </li>
+                                ))
+                            }
                         </ul>
                     </div>
                     <hr />
