@@ -32,15 +32,40 @@ export async function getFilmeList(setFilmeList) {
       Authorization: `Bearer ${TOKEN_KEY}`,
     };
   
-    const url_teste = `https://api.themoviedb.org/3/movie/${filmeId}?language=en-US`
+    const url = `https://api.themoviedb.org/3/movie/${filmeId}`
+
     try {
-      const response = await fetch(url_teste, {
+      const response = await fetch(url, {
         method: "GET",
         headers: headers,
       });
   
       const data = await response.json();
-      setFilmeDescription(data.results);
+      setFilmeDescription(data);
+    } catch (e) {
+      throw new Error("Ocorreu um erro");
+    }
+  }
+
+  export async function getFilmeElenco(filmeId, setFilmeElenco) {
+    const TOKEN_KEY =
+      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2EzNGZhODRlZGU5YjFhMzlmNDVkZjExZTQxNGJmMiIsIm5iZiI6MTcyMzgwNzk3MS41MDcyODksInN1YiI6IjY2YmYzNzdkOGMzZDhlOTkzODk3YzIwNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Q6AqJhyY_VLFY7-6gz1HjDDmp4Lx6bwHSBSiZlztMPw";
+  
+    const headers = {
+      Accept: "application/json",
+      Authorization: `Bearer ${TOKEN_KEY}`,
+    };
+  
+    const url = `https://api.themoviedb.org/3/movie/${filmeId}/credits?language=en-US`
+    
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: headers,
+      });
+  
+      const data = await response.json();
+      setFilmeElenco(data);
     } catch (e) {
       throw new Error("Ocorreu um erro");
     }
