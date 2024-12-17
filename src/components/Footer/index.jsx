@@ -70,7 +70,7 @@ export default function Footer() {
               </a>
             </p>
             <p>
-              <a href="" target="_blank" class="linkfooter">
+              <a href="" target="_blank" className="linkfooter">
                 Filme-4
               </a>
             </p>
@@ -110,7 +110,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div class="info">
+        <div className="info">
           <p>
             Cinema <span className="infinito">∞</span> &copy;
           </p>
