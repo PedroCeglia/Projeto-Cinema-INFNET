@@ -37,6 +37,8 @@ function formatarData(data, isToday=false){
     const mes = listaMeses[data.getMonth()]
     
     const ano = data.getFullYear()
+
+    const timestamp = data.getTime()
     
-    return {diaMes, diaSemana, mes, ano}
+    return {diaMes, diaSemana, mes, ano, timestamp}
 }
