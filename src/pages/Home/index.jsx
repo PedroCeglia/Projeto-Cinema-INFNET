@@ -1,4 +1,4 @@
-import FilmesList from "../../components/FilmesList";
+import FilmesList from "../../components/listas/FilmesList";
 import { useState, useEffect } from "react";
 import { useMovieDBContext } from "../../contexts/MovieDB";
 
