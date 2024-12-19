@@ -87,6 +87,15 @@ header .menuOptionsMobile {
     border-bottom: 1px solid var(--primary-color);
 }
 
+header .btnsMenu a,
+header .btnsMenu span{
+    text-decoration: none;
+    color:#ff3131;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* Modal Login */
 
@@ -245,6 +254,15 @@ form input[type="submit"]{
     header .btnsMenu{
         justify-content: flex-start;
     }
+    header .btnsMenu a,
+    header .btnsMenu span{
+        text-decoration: none;
+        color:#ff3131;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     
     header .menuOptionsDesktop {
         display: flex;
