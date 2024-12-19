@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom";
-import ChoiceSession from "../../components/ChoiceSession"
+import ChoiceSession from "../../components/choose/ChooseSession"
 import { getGenerosByIdGenerosList } from "../../constants/generos"
 import { getFilmeDescription, getFilmeElenco } from "../../api/MovieDB";
 
