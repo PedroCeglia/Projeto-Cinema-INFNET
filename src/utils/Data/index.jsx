@@ -23,7 +23,7 @@ export function getDataAtual(){
     return formatarData(dataAtual, true)
 }
 
-function formatarData(data, isToday=false){
+export function formatarData(data, isToday=false){
     const listaDias = [
         "Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"
     ]
@@ -34,11 +34,41 @@ function formatarData(data, isToday=false){
         'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 
         'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'
     ];
-    const mes = listaMeses[data.getMonth()]
+    const mesText = listaMeses[data.getMonth()]
+
+    const mes = data.getMonth() + 1
     
     const ano = data.getFullYear()
 
     const timestamp = data.getTime()
     
-    return {diaMes, diaSemana, mes, ano, timestamp}
+    const hora = data.getHours()
+
+    const minuto = data.getMinutes()
+    
+    return {diaMes, diaSemana, mes, mesText, ano, timestamp, hora, minuto}
+}
+
+export function getTimestamp(dia, mes, ano, hora, minuto) {
+    const date = new Date(ano, mes - 1, dia, hora, minuto);
+    return date.getTime();
+  }
+  
+export function formatarDataNumericaParaString(dataNumero){
+    const dataString = dataNumero.toString()
+
+    return dataString.length > 1 ? dataString : `0${dataString}` 
+}
+
+export const getDataSession = (timestamp) => {
+    const dataAtual = new Date()
+    const dataFilme = new Date(parseInt(timestamp))
+    const data = formatarData(
+        dataFilme, 
+        (dataFilme.getDate() == dataAtual.getDate() && dataFilme.getMonth() == dataAtual.getMonth()) 
+    )
+    const diaFormatado = formatarDataNumericaParaString(data.diaMes)
+    const horaFormatada = formatarDataNumericaParaString(data.hora)
+    const minutoFormatada = formatarDataNumericaParaString(data.minuto)
+    return {...data, diaFormatado, horaFormatada, minutoFormatada}
 }
