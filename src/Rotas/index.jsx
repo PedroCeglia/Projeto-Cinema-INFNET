@@ -2,6 +2,11 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import EstruturaPagina from "../pages/EstruturaPagina"
 import Home from "../pages/Home"
 import Filme from "../pages/Filme"
+import Pedidos from "../pages/Pedidos"
+import Session from "../pages/Session"
+import ChooseSeat from "../components/choose/ChooseSeat"
+import ChooseIngresso from "../components/choose/ChooseIngresso"
+import ChooseExtras from "../components/choose/ChooseExtras"
 
 const rotasFilmes = [
     {
@@ -10,7 +15,21 @@ const rotasFilmes = [
     },
     {
         path:"/filme/:filmeId/:sessaoId",
-        element:<h1>Filme: Sessão: Escolher Assento</h1>
+        element:<Session/>,
+        children:[
+            {
+                path:"",
+                element:<ChooseSeat/>
+            },
+            {
+                path:"extras",
+                element:<ChooseExtras/>
+            },
+            {
+                path:"tipo-ingresso",
+                element:<ChooseIngresso/>
+            }
+        ]
     },
 
 ]
@@ -23,7 +42,11 @@ const router = createBrowserRouter([
             {
                 path:"/",
                 element:<Home/>
-            }, ...rotasFilmes
+            }, ...rotasFilmes,
+            {
+                path:"/pedidos",
+                element:<Pedidos/>
+            }
         ]
     },
     {
