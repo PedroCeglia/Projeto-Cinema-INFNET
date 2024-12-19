@@ -1,0 +1,116 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+}
+
+.title{
+    font-size: 1.4em;
+    align-self: center;
+}
+.listaIngressos{
+    align-self: center;
+    font-size: 1.1em;
+    color: rgba(255,255,255,.7);
+}
+
+.subtitle{
+    margin-top: 20px;
+    padding-left: 25px;
+    align-self: flex-start;
+    font-size: 1.2em;
+    color: rgba(255,255,255,.7);
+}
+
+.subContainer{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: url('https://i.imgur.com/W2xyvgz.png');
+    gap: 30px;
+    width: 300px;
+    height: 150px;
+    padding-left: 20px;
+}
+
+.textContainer{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.image{
+    display: none;
+
+    position: absolute;
+    object-fit: cover;
+    top: -100px;
+    left: 0;
+}
+.price,
+.label{
+    font-size: 1.2em;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonContainer button{
+    width: 40px;
+    height: 30px;
+    font-size: 21px;
+    background-color: rgba(255,255,255,.8);
+    cursor: pointer;
+}
+
+.buttonContainer button:nth-of-type(1){
+    border-radius: 3px 0 0 3px;
+    border: 1px solid rgba(0,0,0,.7);
+}
+
+.buttonContainer button:nth-of-type(2){
+    border-radius: 0 3px 3px 0;
+    border: 1px solid rgba(0,0,0,.7);
+}
+
+.buttonContainer span{
+    border: 1px solid rgba(0,0,0,.7);
+    border-left: none;
+    border-right: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    color: #000;
+    background-color: rgba(255,255,255,.6);
+    font-size: 21px;
+}
+
+.link{
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+    background-color: #c94e1a;
+    color: rgba(0,0,0,.9);
+    border:1px solid rgba(233,233,233,.8);
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-size: 1.2em;
+    text-align: center;
+}
