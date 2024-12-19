@@ -102,7 +102,7 @@ export default function Header(){
                 </nav>
                 <div className={styles.btnsMenu}>
                     <span className={styles.loginBtn} onClick={handleLogin}><GoPerson /></span>
-                    <span>{iconMenu}</span>
+                    <Link to="/pedidos" className={styles.linkPedidos}><span>{iconMenu}</span></Link>
                 </div>
             </header>
 
