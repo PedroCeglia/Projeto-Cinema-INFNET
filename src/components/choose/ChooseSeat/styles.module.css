@@ -35,7 +35,9 @@
     width: 50px;
     margin: 0 10px;
 }
-
+@media all and (max-width:500px){
+    .fileiraIndex{width: 25px;}
+}
 .listaAssentos{
     width: 100%;
     display: flex;
@@ -56,6 +58,22 @@
     width:30px;
     height:30px;
     object-fit: cover;
+}
+
+@media all and (max-width:700px){
+    .containerAssento img{
+        width:15px;
+        height:15px;
+        object-fit: cover;
+    }
+}
+
+@media all and (max-width:450px){
+    .containerAssento img{
+        width:10px;
+        height:10px;
+        object-fit: cover;
+    }
 }
 
 .link{

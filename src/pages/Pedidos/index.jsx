@@ -83,8 +83,9 @@ const PedidoCard = ({pedido}) => {
                 </div>
                 <div className={styles.subContainerPedido}>
                     <span className={styles.labelPedido}>Snacks escolhidos:</span>
-                    <p>Combo G</p>
-                    <p>Refrigerante G</p>
+                    {
+                        snacksList.map((snack, key) => <p key={key}>{snack.title}</p> )
+                    }
                 </div>
             </div>
 

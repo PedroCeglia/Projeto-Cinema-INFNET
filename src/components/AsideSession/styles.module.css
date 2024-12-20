@@ -20,14 +20,29 @@
     gap: 20px;
 }
 
+@media all and (max-width:1000px){
+    .container{
+        width: 100%;
+    }
+    .itensList{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
 .item{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
     padding: 10px 20px;
     gap: 20px;
 }
+@media all and (min-width:1000px){
+    .item{
+        width: 100%;
+    }
+}
+
 .imageContainer{
     width: 40px;
     height: 40px;

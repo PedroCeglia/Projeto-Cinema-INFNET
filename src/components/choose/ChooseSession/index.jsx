@@ -21,13 +21,14 @@ export default function ChoiceSession(){
                 <div className={styles.ContainerDias}>
                     {
                         diasList.map((item, key) => {
-                            const {diaMes, diaSemana, mesText, ano} = item
+                            const {diaMes, diaSemana, mesText, ano, mes} = item
                             return <SessionDayCard 
                                 key={key}
                                 diaMes={diaMes}
                                 diaSemana={diaSemana}
-                                mes={mesText}
                                 ano={ano}
+                                mesText={mesText}
+                                mes={mes}
                             />
                         })
                     }

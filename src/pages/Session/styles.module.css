@@ -6,3 +6,9 @@
     padding: 20px;
     gap: 20px;
 }
+
+@media all and (max-width:1000px){
+    .container{
+        flex-direction: column;
+    }
+}
